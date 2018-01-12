@@ -1,22 +1,24 @@
-FROM node:8.9.3
-MAINTAINER Riskalyze
-WORKDIR /app
+FROM node:8.9.3-alpine as builder
+WORKDIR /build
 
-ARG ARG_LISTEN_PORT=80
-ENV LISTEN_PORT=${ARG_LISTEN_PORT}
-
-COPY package.json /app/package.json
-COPY package-lock.json /app/package-lock.json
+COPY package.json /build/package.json
+COPY package-lock.json /build/package-lock.json
 RUN npm install
 
-COPY tsconfig.json /app/tsconfig.json
-COPY tslint.json /app/tslint.json
-COPY src /app/src
-
+COPY tsconfig.json /build/tsconfig.json
+COPY tslint.json /build/tslint.json
+COPY src /build/src
 RUN npm run build
-RUN rm -r /app/src
-RUN rm -r /app/tslint.json
-RUN rm -r /app/tsconfig.json
 
+FROM node:8.9.3-alpine
+WORKDIR /app
+
+#copy the build artifacts to the final image
+COPY --from=builder /build/dist /app/dist
+COPY --from=builder /build/package.json /app/package.json
+COPY --from=builder /build/package-lock.json /app/package-lock.json
+#install production dependencies
+RUN npm install --only=production
+ENV LISTEN_PORT=80
 EXPOSE $LISTEN_PORT
 ENTRYPOINT ["npm", "start"]

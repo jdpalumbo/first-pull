@@ -12,8 +12,8 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "start": "npm run watch",
-    "dev": "npm run build-dev && export $(egrep -v '^#' dev.docker | xargs) && npm run watch-dev",
+    "start": "node dist/server.js",
+    "dev": "npm run build-dev && export $(egrep -v '^#' .env.docker | xargs) && npm run watch-dev",
     "build": "npm run tslint && npm run build-ts",
     "build-dev": "npm run clean-dist && npm run tslint && npm run build-ts",
     "prepare": "check-node-version --package",
