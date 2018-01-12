@@ -1,0 +1,54 @@
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+
+# expo
+.expo/
+
+# dependencies
+**/node_modules
+
+# misc
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+lib-cov
+*.seed
+*.log
+*.csv
+*.out
+*.pid
+*.swp
+
+pids
+logs
+results
+tmp
+
+# API keys and secrets
+*.env
+
+
+# Dependency directory
+node_modules
+
+# Editors
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/dataSources*
+.idea/dictionaries
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# Ignore built ts files
+/**/dist/**/*
+/**/src/**/*.js
+
+coverage/**/*
+

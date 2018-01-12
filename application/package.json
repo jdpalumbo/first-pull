@@ -1,0 +1,35 @@
+{
+  "name": "application",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "@types/jest": "^22.0.1",
+    "@types/react": "^16.0.34",
+    "@types/react-native": "^0.48.10",
+    "@types/react-test-renderer": "^16.0.0",
+    "jest-expo-ts": "^20.0.0",
+    "react-native-scripts-ts": "1.7.0",
+    "react-native-typescript-transformer": "^1.1.4",
+    "react-test-renderer": "16.0.0-alpha.12",
+    "typescript": "^2.5.2"
+  },
+  "main": "./node_modules/react-native-scripts-ts/build/bin/crna-entry.js",
+  "scripts": {
+    "start": "react-native-scripts-ts start",
+    "eject": "react-native-scripts-ts eject",
+    "android": "react-native-scripts-ts android",
+    "ios": "react-native-scripts-ts ios",
+    "test": "node node_modules/jest/bin/jest.js --watch"
+  },
+  "jest": {
+    "preset": "jest-expo-ts"
+  },
+  "dependencies": {
+    "@expo/vector-icons": "^6.2.2",
+    "expo": "^23.0.4",
+    "native-base": "^2.3.6",
+    "react": "16.0.0",
+    "react-native": "0.50.3",
+    "tslib": "^1.8.1"
+  }
+}
