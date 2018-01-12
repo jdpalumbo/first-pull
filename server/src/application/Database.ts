@@ -10,10 +10,12 @@ export default class Database {
             password: process.env.MYSQL_PASSWORD,
             database: process.env.MYSQL_DATABASE,
             entities: [
-                __dirname + "/data/entities/*.js"
+                "/app/dist/data/entities/*.js"
             ],
             synchronize: process.env.SYNCHRONIZE_DATABASE,
             logging: process.env.DATABASE_LOGGING
         });
+
+
     }
 }
